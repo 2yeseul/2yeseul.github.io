@@ -3,14 +3,13 @@ layout: page
 type: about
 ---
 
-## Develop for me and you 👩🏻‍💻
 
 ### 👩 **About me**
 
 - 이예슬
 - 성신여자대학교 IT학부 정보시스템학과 전공, 컴퓨터과학과 복수전공
 - Email : 20152917@sungshin.ac.kr
-- Love to use **JAVA**, Spring Boot
+- **JAVA**, Spring Boot, JSP, MySQL, JavaScript
 
 ### 🏆 Awards
 
