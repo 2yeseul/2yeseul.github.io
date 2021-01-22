@@ -427,6 +427,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_동행">동행</a>
 <ul class="sectlevel2">
 <li><a href="#_1_동행_모집_업로드">1. 동행 모집 업로드</a></li>
+<li><a href="#_2_동행_모집_리스트_조회하기">2. 동행 모집 리스트 조회하기</a></li>
 </ul>
 </li>
 </ul>
@@ -444,24 +445,24 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 Host: localhost:8080
 Content-Type: application/x-www-form-urlencoded
 
-nickname=admin&amp;tourLocation=%EC%9D%B8%EC%B2%9C&amp;tourTeam=SK&amp;tourStartDate=06-01&amp;tourEndDate=06-02&amp;tourTitle=%EC%A7%81%EA%B4%80%EA%B0%80%EC%9E%90&amp;tourContent=%EA%B0%80%EC%B9%98%EA%B3%A0%EA%B3%A0%EA%B3%A0&amp;tourNeed=%ED%88%AC%EC%96%B4+%EC%A1%B0%EA%B1%B4+%E3%85%87%E3%85%87%E3%85%87%E3%85%87</code></pre>
+nickname=admin3&amp;tourLocation=%EC%9D%B8%EC%B2%9C&amp;tourTeam=SK&amp;tourStartDate=601&amp;tourEndDate=602&amp;tourTitle=%EC%A7%81%EA%B4%80%EA%B0%80%EC%9E%90%7E%7E%7E&amp;tourContent=%EA%B0%80%EC%B9%98%EA%B3%A0%EA%B3%A0%EA%B3%A0+%E3%85%8B&amp;tourNeed=%ED%88%AC%EC%96%B4+%EC%A1%B0%EA%B1%B4+%E3%85%87%E3%85%87%E3%85%87%E3%85%87</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 262
+Content-Length: 259
 
 {
-  "tourId" : 1,
-  "nickname" : "admin",
+  "id" : 15,
+  "nickname" : "admin3",
   "tourLocation" : "인천",
   "tourTeam" : "SK",
-  "tourStartDate" : "06-01",
-  "tourEndDate" : "06-02",
-  "tourTitle" : "직관가자",
-  "tourContent" : "가치고고고",
+  "tourStartDate" : 601,
+  "tourEndDate" : 602,
+  "tourTitle" : "직관가자~~~",
+  "tourContent" : "가치고고고 ㅋ",
   "tourNeed" : "투어 조건 ㅇㅇㅇㅇ"
 }</code></pre>
 </div>
@@ -469,13 +470,13 @@ Content-Length: 262
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-bash" data-lang="bash">$ http --form POST 'http://localhost:8080/tour-upload' \
-    'nickname=admin' \
+    'nickname=admin3' \
     'tourLocation=인천' \
     'tourTeam=SK' \
-    'tourStartDate=06-01' \
-    'tourEndDate=06-02' \
-    'tourTitle=직관가자' \
-    'tourContent=가치고고고' \
+    'tourStartDate=601' \
+    'tourEndDate=602' \
+    'tourTitle=직관가자~~~' \
+    'tourContent=가치고고고 ㅋ' \
     'tourNeed=투어 조건 ㅇㅇㅇㅇ'</code></pre>
 </div>
 </div>
@@ -494,7 +495,7 @@ Content-Length: 262
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tourId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>id</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">pk</p></td>
 </tr>
@@ -515,12 +516,12 @@ Content-Length: 262
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>tourStartDate</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">동행 시작일</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>tourEndDate</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">동행 종료일</p></td>
 </tr>
 <tr>
@@ -541,12 +542,179 @@ Content-Length: 262
 </tbody>
 </table>
 </div>
+<div class="sect2">
+<h3 id="_2_동행_모집_리스트_조회하기">2. 동행 모집 리스트 조회하기</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /tour-search HTTP/1.1
+Host: localhost:8080
+Content-Type: application/x-www-form-urlencoded
+
+keyword=SK</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 3640
+
+[ {
+  "id" : 1,
+  "nickname" : "admin",
+  "tourLocation" : "인천",
+  "tourTeam" : "SK",
+  "tourStartDate" : 601,
+  "tourEndDate" : 602,
+  "tourTitle" : "직관가자",
+  "tourContent" : "가치고고고",
+  "tourNeed" : "투어 조건 ㅇㅇㅇㅇ"
+}, {
+  "id" : 3,
+  "nickname" : "admin3",
+  "tourLocation" : "인천",
+  "tourTeam" : "SK",
+  "tourStartDate" : 601,
+  "tourEndDate" : 602,
+  "tourTitle" : "직관가자~~~",
+  "tourContent" : "가치고고고 ㅋ",
+  "tourNeed" : "투어 조건 ㅇㅇㅇㅇ"
+}, {
+  "id" : 4,
+  "nickname" : "admin3",
+  "tourLocation" : "인천",
+  "tourTeam" : "SK",
+  "tourStartDate" : 601,
+  "tourEndDate" : 602,
+  "tourTitle" : "직관가자~~~",
+  "tourContent" : "가치고고고 ㅋ",
+  "tourNeed" : "투어 조건 ㅇㅇㅇㅇ"
+}, {
+  "id" : 5,
+  "nickname" : "admin3",
+  "tourLocation" : "인천",
+  "tourTeam" : "SK",
+  "tourStartDate" : 601,
+  "tourEndDate" : 602,
+  "tourTitle" : "직관가자~~~",
+  "tourContent" : "가치고고고 ㅋ",
+  "tourNeed" : "투어 조건 ㅇㅇㅇㅇ"
+}, {
+  "id" : 6,
+  "nickname" : "admin3",
+  "tourLocation" : "인천",
+  "tourTeam" : "SK",
+  "tourStartDate" : 601,
+  "tourEndDate" : 602,
+  "tourTitle" : "직관가자~~~",
+  "tourContent" : "가치고고고 ㅋ",
+  "tourNeed" : "투어 조건 ㅇㅇㅇㅇ"
+}, {
+  "id" : 7,
+  "nickname" : "admin3",
+  "tourLocation" : "인천",
+  "tourTeam" : "SK",
+  "tourStartDate" : 601,
+  "tourEndDate" : 602,
+  "tourTitle" : "직관가자~~~",
+  "tourContent" : "가치고고고 ㅋ",
+  "tourNeed" : "투어 조건 ㅇㅇㅇㅇ"
+}, {
+  "id" : 8,
+  "nickname" : "admin3",
+  "tourLocation" : "인천",
+  "tourTeam" : "SK",
+  "tourStartDate" : 601,
+  "tourEndDate" : 602,
+  "tourTitle" : "직관가자~~~",
+  "tourContent" : "가치고고고 ㅋ",
+  "tourNeed" : "투어 조건 ㅇㅇㅇㅇ"
+}, {
+  "id" : 9,
+  "nickname" : "admin3",
+  "tourLocation" : "인천",
+  "tourTeam" : "SK",
+  "tourStartDate" : 601,
+  "tourEndDate" : 602,
+  "tourTitle" : "직관가자~~~",
+  "tourContent" : "가치고고고 ㅋ",
+  "tourNeed" : "투어 조건 ㅇㅇㅇㅇ"
+}, {
+  "id" : 10,
+  "nickname" : "admin3",
+  "tourLocation" : "인천",
+  "tourTeam" : "SK",
+  "tourStartDate" : 601,
+  "tourEndDate" : 602,
+  "tourTitle" : "직관가자~~~",
+  "tourContent" : "가치고고고 ㅋ",
+  "tourNeed" : "투어 조건 ㅇㅇㅇㅇ"
+}, {
+  "id" : 11,
+  "nickname" : "admin3",
+  "tourLocation" : "인천",
+  "tourTeam" : "SK",
+  "tourStartDate" : 601,
+  "tourEndDate" : 602,
+  "tourTitle" : "직관가자~~~",
+  "tourContent" : "가치고고고 ㅋ",
+  "tourNeed" : "투어 조건 ㅇㅇㅇㅇ"
+}, {
+  "id" : 12,
+  "nickname" : "admin3",
+  "tourLocation" : "인천",
+  "tourTeam" : "SK",
+  "tourStartDate" : 601,
+  "tourEndDate" : 602,
+  "tourTitle" : "직관가자~~~",
+  "tourContent" : "가치고고고 ㅋ",
+  "tourNeed" : "투어 조건 ㅇㅇㅇㅇ"
+}, {
+  "id" : 13,
+  "nickname" : "admin3",
+  "tourLocation" : "인천",
+  "tourTeam" : "SK",
+  "tourStartDate" : 601,
+  "tourEndDate" : 602,
+  "tourTitle" : "직관가자~~~",
+  "tourContent" : "가치고고고 ㅋ",
+  "tourNeed" : "투어 조건 ㅇㅇㅇㅇ"
+}, {
+  "id" : 14,
+  "nickname" : "admin3",
+  "tourLocation" : "인천",
+  "tourTeam" : "SK",
+  "tourStartDate" : 601,
+  "tourEndDate" : 602,
+  "tourTitle" : "직관가자~~~",
+  "tourContent" : "가치고고고 ㅋ",
+  "tourNeed" : "투어 조건 ㅇㅇㅇㅇ"
+}, {
+  "id" : 15,
+  "nickname" : "admin3",
+  "tourLocation" : "인천",
+  "tourTeam" : "SK",
+  "tourStartDate" : 601,
+  "tourEndDate" : 602,
+  "tourTitle" : "직관가자~~~",
+  "tourContent" : "가치고고고 ㅋ",
+  "tourNeed" : "투어 조건 ㅇㅇㅇㅇ"
+} ]</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ http --form POST 'http://localhost:8080/tour-search' \
+    'keyword=SK'</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-01-21 11:40:34 +09:00
+Last updated 2021-01-22 20:20:31 +09:00
 </div>
 </div>
 </body>
