@@ -432,6 +432,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_4_동행_상세페이지">4. 동행 상세페이지</a></li>
 </ul>
 </li>
+<li><a href="#_프로필">프로필</a></li>
+<li><a href="#_1_회원가입">1.회원가입</a></li>
 </ul>
 </div>
 </div>
@@ -447,17 +449,17 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 Host: localhost:8080
 Content-Type: application/x-www-form-urlencoded
 
-nickname=nickname15&amp;tourLocation=%EC%9D%B8%EC%B2%9C&amp;tourTeam=SK&amp;tourStartDate=601&amp;tourEndDate=602&amp;tourTitle=tourTitle0&amp;tourContent=tourContent0&amp;requiredGender=2&amp;tourTheme=tourTheme0&amp;minimumAge=20&amp;maximumAge=30&amp;totalNumberOfMember=5&amp;nowNumberOfMember=2</code></pre>
+nickname=nickname100&amp;tourLocation=%EC%9D%B8%EC%B2%9C&amp;tourTeam=SK&amp;tourStartDate=601&amp;tourEndDate=602&amp;tourTitle=tourTitle0&amp;tourContent=tourContent0&amp;requiredGender=2&amp;tourTheme=tourTheme0&amp;minimumAge=20&amp;maximumAge=30&amp;totalNumberOfMember=5&amp;nowNumberOfMember=2</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 345
+Content-Length: 346
 
 {
-  "nickname" : "nickname15",
+  "nickname" : "nickname100",
   "tourLocation" : "인천",
   "tourTeam" : "SK",
   "tourStartDate" : 601,
@@ -476,7 +478,7 @@ Content-Length: 345
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-bash" data-lang="bash">$ http --form POST 'http://localhost:8080/tour-upload' \
-    'nickname=nickname15' \
+    'nickname=nickname100' \
     'tourLocation=인천' \
     'tourTeam=SK' \
     'tourStartDate=601' \
@@ -578,50 +580,78 @@ Content-Length: 345
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-bash" data-lang="bash">$ http --form POST 'http://localhost:8080/tour-search' \
-    'keyword=SK'</code></pre>
+    'keyword=KT'</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 856
+Content-Length: 1538
 
 [ {
-  "tourLocation" : "인천",
-  "nickname" : "nickname15",
-  "tourTitle" : "tourTitle0",
-  "minimumAge" : 20,
-  "maximumAge" : 30,
-  "postsAt" : "2021-01-27T15:02:28"
-}, {
-  "tourLocation" : "인천",
-  "nickname" : "nickname16",
-  "tourTitle" : "tourTitle16",
-  "minimumAge" : 4,
-  "maximumAge" : 37,
-  "postsAt" : "2021-01-27T15:02:27"
+  "tourLocation" : "광주",
+  "nickname" : "nickname7",
+  "tourTitle" : "tourTitle7",
+  "minimumAge" : 29,
+  "maximumAge" : 64,
+  "postsAt" : "2021-01-29T00:37:27"
 }, {
   "tourLocation" : "대구",
-  "nickname" : "nickname12",
-  "tourTitle" : "tourTitle12",
-  "minimumAge" : 13,
-  "maximumAge" : 19,
-  "postsAt" : "2021-01-27T15:02:27"
+  "nickname" : "nickname18",
+  "tourTitle" : "tourTitle18",
+  "minimumAge" : 54,
+  "maximumAge" : 94,
+  "postsAt" : "2021-01-29T00:36:59"
+}, {
+  "tourLocation" : "대전",
+  "nickname" : "nickname11",
+  "tourTitle" : "tourTitle11",
+  "minimumAge" : 50,
+  "maximumAge" : 64,
+  "postsAt" : "2021-01-29T00:36:59"
 }, {
   "tourLocation" : "광주",
   "nickname" : "nickname1",
   "tourTitle" : "tourTitle1",
-  "minimumAge" : 54,
+  "minimumAge" : 17,
+  "maximumAge" : 80,
+  "postsAt" : "2021-01-29T00:36:59"
+}, {
+  "tourLocation" : "대구",
+  "nickname" : "nickname5",
+  "tourTitle" : "tourTitle5",
+  "minimumAge" : 13,
+  "maximumAge" : 24,
+  "postsAt" : "2021-01-29T00:36:26"
+}, {
+  "tourLocation" : "광주",
+  "nickname" : "nickname1",
+  "tourTitle" : "tourTitle1",
+  "minimumAge" : 20,
   "maximumAge" : 91,
-  "postsAt" : "2021-01-27T15:02:27"
+  "postsAt" : "2021-01-29T00:35:11"
+}, {
+  "tourLocation" : "부산",
+  "nickname" : "nickname13",
+  "tourTitle" : "tourTitle13",
+  "minimumAge" : 57,
+  "maximumAge" : 94,
+  "postsAt" : "2021-01-29T00:25:01"
 }, {
   "tourLocation" : "인천",
-  "nickname" : "nickname7",
-  "tourTitle" : "tourTitle7",
-  "minimumAge" : 45,
-  "maximumAge" : 70,
-  "postsAt" : "2021-01-27T14:12:47"
+  "nickname" : "nickname8",
+  "tourTitle" : "tourTitle8",
+  "minimumAge" : 88,
+  "maximumAge" : 91,
+  "postsAt" : "2021-01-29T00:25:01"
+}, {
+  "tourLocation" : "광주",
+  "nickname" : "nickname5",
+  "tourTitle" : "tourTitle5",
+  "minimumAge" : 29,
+  "maximumAge" : 97,
+  "postsAt" : "2021-01-29T00:25:01"
 } ]</code></pre>
 </div>
 </div>
@@ -638,57 +668,120 @@ Content-Length: 856
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 1198
+Content-Length: 2729
 
 [ {
   "tourLocation" : "대구",
+  "nickname" : "nickname17",
+  "tourTitle" : "tourTitle17",
+  "minimumAge" : 69,
+  "maximumAge" : 78,
+  "postsAt" : "2021-01-29T00:37:27"
+}, {
+  "tourLocation" : "대구",
+  "nickname" : "nickname5",
+  "tourTitle" : "tourTitle5",
+  "minimumAge" : 61,
+  "maximumAge" : 84,
+  "postsAt" : "2021-01-29T00:37:27"
+}, {
+  "tourLocation" : "대구",
   "nickname" : "nickname18",
   "tourTitle" : "tourTitle18",
-  "minimumAge" : 46,
-  "maximumAge" : 83,
-  "postsAt" : "2021-01-27T15:02:27"
+  "minimumAge" : 54,
+  "maximumAge" : 94,
+  "postsAt" : "2021-01-29T00:36:59"
 }, {
   "tourLocation" : "대구",
   "nickname" : "nickname15",
   "tourTitle" : "tourTitle15",
-  "minimumAge" : 18,
-  "maximumAge" : 85,
-  "postsAt" : "2021-01-27T15:02:27"
+  "minimumAge" : 5,
+  "maximumAge" : 58,
+  "postsAt" : "2021-01-29T00:36:59"
 }, {
   "tourLocation" : "대구",
-  "nickname" : "nickname12",
-  "tourTitle" : "tourTitle12",
+  "nickname" : "nickname8",
+  "tourTitle" : "tourTitle8",
+  "minimumAge" : 44,
+  "maximumAge" : 92,
+  "postsAt" : "2021-01-29T00:36:59"
+}, {
+  "tourLocation" : "대구",
+  "nickname" : "nickname10",
+  "tourTitle" : "tourTitle",
+  "minimumAge" : 51,
+  "maximumAge" : 94,
+  "postsAt" : "2021-01-29T00:36:26"
+}, {
+  "tourLocation" : "대구",
+  "nickname" : "nickname13",
+  "tourTitle" : "tourTitle13",
+  "minimumAge" : 83,
+  "maximumAge" : 99,
+  "postsAt" : "2021-01-29T00:36:26"
+}, {
+  "tourLocation" : "대구",
+  "nickname" : "nickname5",
+  "tourTitle" : "tourTitle5",
   "minimumAge" : 13,
-  "maximumAge" : 19,
-  "postsAt" : "2021-01-27T15:02:27"
+  "maximumAge" : 24,
+  "postsAt" : "2021-01-29T00:36:26"
 }, {
   "tourLocation" : "대구",
-  "nickname" : "nickname12",
-  "tourTitle" : "tourTitle12",
-  "minimumAge" : 49,
-  "maximumAge" : 71,
-  "postsAt" : "2021-01-27T14:12:47"
+  "nickname" : "nickname3",
+  "tourTitle" : "tourTitle3",
+  "minimumAge" : 39,
+  "maximumAge" : 66,
+  "postsAt" : "2021-01-29T00:36:26"
 }, {
   "tourLocation" : "대구",
-  "nickname" : "nickname9",
-  "tourTitle" : "tourTitle9",
-  "minimumAge" : 58,
-  "maximumAge" : 61,
-  "postsAt" : "2021-01-27T14:12:47"
+  "nickname" : "nickname0",
+  "tourTitle" : "tourTitle0",
+  "minimumAge" : 23,
+  "maximumAge" : 74,
+  "postsAt" : "2021-01-29T00:36:26"
 }, {
   "tourLocation" : "대구",
-  "nickname" : "nickname6",
-  "tourTitle" : "tourTitle6",
-  "minimumAge" : 30,
-  "maximumAge" : 32,
-  "postsAt" : "2021-01-27T14:12:47"
+  "nickname" : "nickname16",
+  "tourTitle" : "tourTitle16",
+  "minimumAge" : 37,
+  "maximumAge" : 85,
+  "postsAt" : "2021-01-29T00:35:11"
+}, {
+  "tourLocation" : "대구",
+  "nickname" : "nickname15",
+  "tourTitle" : "tourTitle15",
+  "minimumAge" : 27,
+  "maximumAge" : 45,
+  "postsAt" : "2021-01-29T00:35:11"
 }, {
   "tourLocation" : "대구",
   "nickname" : "nickname4",
   "tourTitle" : "tourTitle4",
-  "minimumAge" : 9,
-  "maximumAge" : 9,
-  "postsAt" : "2021-01-27T14:12:47"
+  "minimumAge" : 78,
+  "maximumAge" : 97,
+  "postsAt" : "2021-01-29T00:35:11"
+}, {
+  "tourLocation" : "대구",
+  "nickname" : "nickname0",
+  "tourTitle" : "tourTitle0",
+  "minimumAge" : 7,
+  "maximumAge" : 8,
+  "postsAt" : "2021-01-29T00:35:11"
+}, {
+  "tourLocation" : "대구",
+  "nickname" : "nickname3",
+  "tourTitle" : "tourTitle3",
+  "minimumAge" : 4,
+  "maximumAge" : 4,
+  "postsAt" : "2021-01-29T00:25:01"
+}, {
+  "tourLocation" : "대구",
+  "nickname" : "nickname1",
+  "tourTitle" : "tourTitle1",
+  "minimumAge" : 34,
+  "maximumAge" : 94,
+  "postsAt" : "2021-01-29T00:25:01"
 } ]</code></pre>
 </div>
 </div>
@@ -697,7 +790,7 @@ Content-Length: 1198
 <h3 id="_4_동행_상세페이지">4. 동행 상세페이지</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /tour-detail/266 HTTP/1.1
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /tour-detail/550 HTTP/1.1
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -705,28 +798,28 @@ Host: localhost:8080</code></pre>
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 346
+Content-Length: 350
 
 {
-  "nickname" : "nickname0",
+  "nickname" : "nickname14",
   "tourLocation" : "서울",
-  "teamIndex" : 7,
+  "teamIndex" : 5,
   "tourStartDate" : 1010,
   "tourEndDate" : 1012,
-  "totalNumberOfMember" : 63,
-  "nowNumberOfMember" : 56,
-  "requiredGender" : 1,
-  "minimumAge" : 91,
-  "maximumAge" : 98,
-  "tourTitle" : "tourTitle0",
-  "tourTheme" : "tourTheme0",
-  "tourContent" : "tourContent0"
+  "totalNumberOfMember" : 74,
+  "nowNumberOfMember" : 14,
+  "requiredGender" : 2,
+  "minimumAge" : 30,
+  "maximumAge" : 53,
+  "tourTitle" : "tourTitle14",
+  "tourTheme" : "tourTheme14",
+  "tourContent" : "tourContent14"
 }</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ http GET 'http://localhost:8080/tour-detail/266'</code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ http GET 'http://localhost:8080/tour-detail/550'</code></pre>
 </div>
 </div>
 <table class="tableblock frame-all grid-all spread">
@@ -813,10 +906,97 @@ Content-Length: 346
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_프로필">프로필</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_1_회원가입">1.회원가입</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>- 아직 패스워드 복호화는 개발하지 않은 상태입니다.
+- 닉네임과 패스워드에 대한 제약사항은 백엔드 쪽에서 처리하긴 했지만 뷰 쪽에서도 서버로 넘어가기 전에 체크해주셨으면 좋겠습니다.
+- 이메일 인증 &amp; OAuth 개발 아직 안되었습니다.</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /sign-up HTTP/1.1
+Content-Type: application/json;charset=UTF-8
+Content-Length: 177
+Host: localhost:8080
+
+{
+  "email" : "email434@email.com",
+  "nickname" : "닉넴1143",
+  "name" : "이름",
+  "birth" : "2000-01-01",
+  "password" : "12345678ab!",
+  "teamIndex" : 1,
+  "gender" : 1
+}</code></pre>
+</div>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Path</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>nickname</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">닉네임</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>email</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">이메일</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>name</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">이름</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>birth</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">생일</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>teamIndex</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">구단 인덱스</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>gender</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">성별 - 1 : 남, 2 : 여, 3 : 선택안함</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>password</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">패스워드 - <strong> 복호화 예정 </strong></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-01-27 15:04:31 +09:00
+Last updated 2021-01-28 23:02:17 +09:00
 </div>
 </div>
 </body>
