@@ -435,6 +435,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_프로필">프로필</a>
 <ul class="sectlevel2">
 <li><a href="#_1_회원가입">1.회원가입</a></li>
+<li><a href="#_2_로그인">2. 로그인</a></li>
 </ul>
 </li>
 </ul>
@@ -1112,7 +1113,7 @@ Content-Length: 350
 <h3 id="_1_회원가입">1.회원가입</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>- 아직 패스워드 복호화는 개발하지 않은 상태입니다.
+<pre class="highlight"><code>- 아직 패스워드 복호화는 개발하지 않은 상태입니다. -&gt; 개발완료
 - 닉네임과 패스워드에 대한 제약사항은 백엔드 쪽에서 처리하긴 했지만 뷰 쪽에서도 서버로 넘어가기 전에 체크해주셨으면 좋겠습니다.
 - 이메일 인증 &amp; OAuth 개발 아직 안되었습니다.</code></pre>
 </div>
@@ -1187,12 +1188,49 @@ Host: localhost:8080
 </tbody>
 </table>
 </div>
+<div class="sect2">
+<h3 id="_2_로그인">2. 로그인</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ http --form POST 'http://localhost:8080/login' \
+    'email=test@test.com' \
+    'password=12345678ab!' \
+    '_csrf=4e58832e-debf-4b86-91d5-8aa296b3020a'</code></pre>
+</div>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>email</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">이메일</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>password</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">패스워드</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>_csrf</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">암호화 관련</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-01-29 00:42:01 +09:00
+Last updated 2021-02-02 11:41:16 +09:00
 </div>
 </div>
 </body>
