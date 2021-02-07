@@ -427,9 +427,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_동행">동행</a>
 <ul class="sectlevel2">
 <li><a href="#_1_동행_모집_업로드">1. 동행 모집 업로드</a></li>
-<li><a href="#_2_동행_검색_목록_반환_팀명으로_검색_최신순">2. 동행 검색 목록 반환 - 팀명으로 검색 - 최신순</a></li>
-<li><a href="#_3_동행_검색_목록_반환_지역으로_검색_최신순">3. 동행 검색 목록 반환 - 지역으로 검색 - 최신순</a></li>
-<li><a href="#_4_동행_상세페이지">4. 동행 상세페이지</a></li>
+<li><a href="#_2_동행_전체_목록">2. 동행 전체 목록</a></li>
+<li><a href="#_3_동행_검색_목록_반환_팀명으로_검색_최신순">3. 동행 검색 목록 반환 - 팀명으로 검색 - 최신순</a></li>
+<li><a href="#_4_동행_검색_목록_반환_지역으로_검색_최신순">4. 동행 검색 목록 반환 - 지역으로 검색 - 최신순</a></li>
+<li><a href="#_5_동행_상세페이지">5. 동행 상세페이지</a></li>
 </ul>
 </li>
 <li><a href="#_프로필">프로필</a>
@@ -581,7 +582,56 @@ Content-Length: 346
 </table>
 </div>
 <div class="sect2">
-<h3 id="_2_동행_검색_목록_반환_팀명으로_검색_최신순">2. 동행 검색 목록 반환 - 팀명으로 검색 - 최신순</h3>
+<h3 id="_2_동행_전체_목록">2. 동행 전체 목록</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Path</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[].id</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tour id</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[].tourLocation</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">직관 지역</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[].nickname</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">닉네임</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[].tourTitle</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">제목</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[].numberOfScraps</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">찜 수</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[].weather</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">날씨</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_3_동행_검색_목록_반환_팀명으로_검색_최신순">3. 동행 검색 목록 반환 - 팀명으로 검색 - 최신순</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-bash" data-lang="bash">$ http --form POST 'http://localhost:8080/tour-search' \
@@ -592,140 +642,84 @@ Content-Length: 346
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 3073
+Content-Length: 1484
 
 [ {
-  "tourLocation" : "인천",
-  "nickname" : "nickname14",
-  "tourTitle" : "tourTitle14",
-  "minimumAge" : 1,
-  "maximumAge" : 61,
-  "postsAt" : "2021-01-29T00:55:22"
-}, {
-  "tourLocation" : "광주",
-  "nickname" : "nickname3",
-  "tourTitle" : "tourTitle3",
-  "minimumAge" : 68,
-  "maximumAge" : 99,
-  "postsAt" : "2021-01-29T00:55:22"
-}, {
-  "tourLocation" : "대전",
-  "nickname" : "nickname0",
-  "tourTitle" : "tourTitle0",
-  "minimumAge" : 54,
-  "maximumAge" : 62,
-  "postsAt" : "2021-01-29T00:55:22"
-}, {
-  "tourLocation" : "수원",
+  "id" : 209,
+  "tourLocation" : "대구",
   "nickname" : "nickname16",
   "tourTitle" : "tourTitle16",
-  "minimumAge" : 61,
-  "maximumAge" : 88,
-  "postsAt" : "2021-01-29T00:53:15"
+  "numberOfScraps" : 0,
+  "weather" : 50
 }, {
-  "tourLocation" : "수원",
-  "nickname" : "nickname12",
-  "tourTitle" : "tourTitle12",
-  "minimumAge" : 65,
-  "maximumAge" : 99,
-  "postsAt" : "2021-01-29T00:53:15"
+  "id" : 203,
+  "tourLocation" : "서울",
+  "nickname" : "nickname10",
+  "tourTitle" : "tourTitle10",
+  "numberOfScraps" : 0,
+  "weather" : 50
 }, {
-  "tourLocation" : "부산",
+  "id" : 191,
+  "tourLocation" : "대전",
+  "nickname" : "nickname19",
+  "tourTitle" : "tourTitle19",
+  "numberOfScraps" : 0,
+  "weather" : 50
+}, {
+  "id" : 177,
+  "tourLocation" : "대구",
   "nickname" : "nickname5",
   "tourTitle" : "tourTitle5",
-  "minimumAge" : 46,
-  "maximumAge" : 79,
-  "postsAt" : "2021-01-29T00:53:15"
+  "numberOfScraps" : 0,
+  "weather" : 50
 }, {
-  "tourLocation" : "수원",
-  "nickname" : "nickname18",
-  "tourTitle" : "tourTitle18",
-  "minimumAge" : 1,
-  "maximumAge" : 68,
-  "postsAt" : "2021-01-29T00:50:59"
+  "id" : 176,
+  "tourLocation" : "대전",
+  "nickname" : "nickname4",
+  "tourTitle" : "tourTitle4",
+  "numberOfScraps" : 0,
+  "weather" : 50
 }, {
-  "tourLocation" : "부산",
+  "id" : 174,
+  "tourLocation" : "광주",
   "nickname" : "nickname2",
   "tourTitle" : "tourTitle2",
-  "minimumAge" : 37,
-  "maximumAge" : 96,
-  "postsAt" : "2021-01-29T00:50:59"
+  "numberOfScraps" : 0,
+  "weather" : 50
 }, {
-  "tourLocation" : "광주",
-  "nickname" : "nickname8",
-  "tourTitle" : "tourTitle8",
-  "minimumAge" : 8,
-  "maximumAge" : 18,
-  "postsAt" : "2021-01-29T00:47:34"
-}, {
-  "tourLocation" : "광주",
-  "nickname" : "nickname7",
-  "tourTitle" : "tourTitle7",
-  "minimumAge" : 29,
-  "maximumAge" : 64,
-  "postsAt" : "2021-01-29T00:37:27"
-}, {
-  "tourLocation" : "대구",
-  "nickname" : "nickname18",
-  "tourTitle" : "tourTitle18",
-  "minimumAge" : 54,
-  "maximumAge" : 94,
-  "postsAt" : "2021-01-29T00:36:59"
-}, {
+  "id" : 117,
   "tourLocation" : "대전",
+  "nickname" : "nickname17",
+  "tourTitle" : "tourTitle17",
+  "numberOfScraps" : 0,
+  "weather" : 50
+}, {
+  "id" : 115,
+  "tourLocation" : "대전",
+  "nickname" : "nickname15",
+  "tourTitle" : "tourTitle15",
+  "numberOfScraps" : 0,
+  "weather" : 50
+}, {
+  "id" : 111,
+  "tourLocation" : "광주",
   "nickname" : "nickname11",
   "tourTitle" : "tourTitle11",
-  "minimumAge" : 50,
-  "maximumAge" : 64,
-  "postsAt" : "2021-01-29T00:36:59"
+  "numberOfScraps" : 0,
+  "weather" : 50
 }, {
-  "tourLocation" : "광주",
-  "nickname" : "nickname1",
-  "tourTitle" : "tourTitle1",
-  "minimumAge" : 17,
-  "maximumAge" : 80,
-  "postsAt" : "2021-01-29T00:36:59"
-}, {
-  "tourLocation" : "대구",
-  "nickname" : "nickname5",
-  "tourTitle" : "tourTitle5",
-  "minimumAge" : 13,
-  "maximumAge" : 24,
-  "postsAt" : "2021-01-29T00:36:26"
-}, {
-  "tourLocation" : "광주",
-  "nickname" : "nickname1",
-  "tourTitle" : "tourTitle1",
-  "minimumAge" : 20,
-  "maximumAge" : 91,
-  "postsAt" : "2021-01-29T00:35:11"
-}, {
-  "tourLocation" : "부산",
-  "nickname" : "nickname13",
-  "tourTitle" : "tourTitle13",
-  "minimumAge" : 57,
-  "maximumAge" : 94,
-  "postsAt" : "2021-01-29T00:25:01"
-}, {
-  "tourLocation" : "인천",
-  "nickname" : "nickname8",
-  "tourTitle" : "tourTitle8",
-  "minimumAge" : 88,
-  "maximumAge" : 91,
-  "postsAt" : "2021-01-29T00:25:01"
-}, {
-  "tourLocation" : "광주",
-  "nickname" : "nickname5",
-  "tourTitle" : "tourTitle5",
-  "minimumAge" : 29,
-  "maximumAge" : 97,
-  "postsAt" : "2021-01-29T00:25:01"
+  "id" : 106,
+  "tourLocation" : "서울",
+  "nickname" : "nickname6",
+  "tourTitle" : "tourTitle6",
+  "numberOfScraps" : 0,
+  "weather" : 50
 } ]</code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_3_동행_검색_목록_반환_지역으로_검색_최신순">3. 동행 검색 목록 반환 - 지역으로 검색 - 최신순</h3>
+<h3 id="_4_동행_검색_목록_반환_지역으로_검색_최신순">4. 동행 검색 목록 반환 - 지역으로 검색 - 최신순</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-bash" data-lang="bash">$ http --form POST 'http://localhost:8080/tour-search' \
@@ -736,259 +730,63 @@ Content-Length: 3073
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 5983
+Content-Length: 1039
 
 [ {
+  "id" : 210,
   "tourLocation" : "대구",
   "nickname" : "nickname17",
   "tourTitle" : "tourTitle17",
-  "minimumAge" : 6,
-  "maximumAge" : 40,
-  "postsAt" : "2021-01-29T00:55:22"
+  "numberOfScraps" : 0,
+  "weather" : 50
 }, {
-  "tourLocation" : "대구",
-  "nickname" : "nickname15",
-  "tourTitle" : "tourTitle15",
-  "minimumAge" : 67,
-  "maximumAge" : 77,
-  "postsAt" : "2021-01-29T00:55:22"
-}, {
-  "tourLocation" : "대구",
-  "nickname" : "nickname12",
-  "tourTitle" : "tourTitle12",
-  "minimumAge" : 36,
-  "maximumAge" : 57,
-  "postsAt" : "2021-01-29T00:55:22"
-}, {
-  "tourLocation" : "대구",
-  "nickname" : "nickname14",
-  "tourTitle" : "tourTitle14",
-  "minimumAge" : 13,
-  "maximumAge" : 35,
-  "postsAt" : "2021-01-29T00:53:54"
-}, {
-  "tourLocation" : "대구",
-  "nickname" : "nickname12",
-  "tourTitle" : "tourTitle12",
-  "minimumAge" : 26,
-  "maximumAge" : 71,
-  "postsAt" : "2021-01-29T00:53:54"
-}, {
-  "tourLocation" : "대구",
-  "nickname" : "nickname5",
-  "tourTitle" : "tourTitle5",
-  "minimumAge" : 29,
-  "maximumAge" : 62,
-  "postsAt" : "2021-01-29T00:53:54"
-}, {
-  "tourLocation" : "대구",
-  "nickname" : "nickname19",
-  "tourTitle" : "tourTitle19",
-  "minimumAge" : 22,
-  "maximumAge" : 92,
-  "postsAt" : "2021-01-29T00:53:15"
-}, {
-  "tourLocation" : "대구",
-  "nickname" : "nickname15",
-  "tourTitle" : "tourTitle15",
-  "minimumAge" : 46,
-  "maximumAge" : 70,
-  "postsAt" : "2021-01-29T00:53:15"
-}, {
-  "tourLocation" : "대구",
-  "nickname" : "nickname14",
-  "tourTitle" : "tourTitle14",
-  "minimumAge" : 8,
-  "maximumAge" : 96,
-  "postsAt" : "2021-01-29T00:53:15"
-}, {
-  "tourLocation" : "대구",
-  "nickname" : "nickname13",
-  "tourTitle" : "tourTitle13",
-  "minimumAge" : 9,
-  "maximumAge" : 69,
-  "postsAt" : "2021-01-29T00:53:15"
-}, {
-  "tourLocation" : "대구",
-  "nickname" : "nickname11",
-  "tourTitle" : "tourTitle11",
-  "minimumAge" : 27,
-  "maximumAge" : 81,
-  "postsAt" : "2021-01-29T00:53:15"
-}, {
-  "tourLocation" : "대구",
-  "nickname" : "nickname10",
-  "tourTitle" : "tourTitle10",
-  "minimumAge" : 15,
-  "maximumAge" : 65,
-  "postsAt" : "2021-01-29T00:53:15"
-}, {
-  "tourLocation" : "대구",
-  "nickname" : "nickname8",
-  "tourTitle" : "tourTitle8",
-  "minimumAge" : 70,
-  "maximumAge" : 79,
-  "postsAt" : "2021-01-29T00:53:15"
-}, {
-  "tourLocation" : "대구",
-  "nickname" : "nickname14",
-  "tourTitle" : "tourTitle14",
-  "minimumAge" : 3,
-  "maximumAge" : 16,
-  "postsAt" : "2021-01-29T00:50:59"
-}, {
-  "tourLocation" : "대구",
-  "nickname" : "nickname13",
-  "tourTitle" : "tourTitle13",
-  "minimumAge" : 21,
-  "maximumAge" : 80,
-  "postsAt" : "2021-01-29T00:50:59"
-}, {
-  "tourLocation" : "대구",
-  "nickname" : "nickname9",
-  "tourTitle" : "tourTitle9",
-  "minimumAge" : 16,
-  "maximumAge" : 90,
-  "postsAt" : "2021-01-29T00:50:59"
-}, {
-  "tourLocation" : "대구",
-  "nickname" : "nickname5",
-  "tourTitle" : "tourTitle5",
-  "minimumAge" : 17,
-  "maximumAge" : 99,
-  "postsAt" : "2021-01-29T00:50:59"
-}, {
-  "tourLocation" : "대구",
-  "nickname" : "nickname13",
-  "tourTitle" : "tourTitle13",
-  "minimumAge" : 19,
-  "maximumAge" : 48,
-  "postsAt" : "2021-01-29T00:47:34"
-}, {
-  "tourLocation" : "대구",
-  "nickname" : "nickname6",
-  "tourTitle" : "tourTitle6",
-  "minimumAge" : 47,
-  "maximumAge" : 90,
-  "postsAt" : "2021-01-29T00:47:34"
-}, {
-  "tourLocation" : "대구",
-  "nickname" : "nickname17",
-  "tourTitle" : "tourTitle17",
-  "minimumAge" : 69,
-  "maximumAge" : 78,
-  "postsAt" : "2021-01-29T00:37:27"
-}, {
-  "tourLocation" : "대구",
-  "nickname" : "nickname5",
-  "tourTitle" : "tourTitle5",
-  "minimumAge" : 61,
-  "maximumAge" : 84,
-  "postsAt" : "2021-01-29T00:37:27"
-}, {
-  "tourLocation" : "대구",
-  "nickname" : "nickname18",
-  "tourTitle" : "tourTitle18",
-  "minimumAge" : 54,
-  "maximumAge" : 94,
-  "postsAt" : "2021-01-29T00:36:59"
-}, {
-  "tourLocation" : "대구",
-  "nickname" : "nickname15",
-  "tourTitle" : "tourTitle15",
-  "minimumAge" : 5,
-  "maximumAge" : 58,
-  "postsAt" : "2021-01-29T00:36:59"
-}, {
-  "tourLocation" : "대구",
-  "nickname" : "nickname8",
-  "tourTitle" : "tourTitle8",
-  "minimumAge" : 44,
-  "maximumAge" : 92,
-  "postsAt" : "2021-01-29T00:36:59"
-}, {
-  "tourLocation" : "대구",
-  "nickname" : "nickname10",
-  "tourTitle" : "tourTitle",
-  "minimumAge" : 51,
-  "maximumAge" : 94,
-  "postsAt" : "2021-01-29T00:36:26"
-}, {
-  "tourLocation" : "대구",
-  "nickname" : "nickname13",
-  "tourTitle" : "tourTitle13",
-  "minimumAge" : 83,
-  "maximumAge" : 99,
-  "postsAt" : "2021-01-29T00:36:26"
-}, {
-  "tourLocation" : "대구",
-  "nickname" : "nickname5",
-  "tourTitle" : "tourTitle5",
-  "minimumAge" : 13,
-  "maximumAge" : 24,
-  "postsAt" : "2021-01-29T00:36:26"
-}, {
-  "tourLocation" : "대구",
-  "nickname" : "nickname3",
-  "tourTitle" : "tourTitle3",
-  "minimumAge" : 39,
-  "maximumAge" : 66,
-  "postsAt" : "2021-01-29T00:36:26"
-}, {
-  "tourLocation" : "대구",
-  "nickname" : "nickname0",
-  "tourTitle" : "tourTitle0",
-  "minimumAge" : 23,
-  "maximumAge" : 74,
-  "postsAt" : "2021-01-29T00:36:26"
-}, {
+  "id" : 209,
   "tourLocation" : "대구",
   "nickname" : "nickname16",
   "tourTitle" : "tourTitle16",
-  "minimumAge" : 37,
-  "maximumAge" : 85,
-  "postsAt" : "2021-01-29T00:35:11"
+  "numberOfScraps" : 0,
+  "weather" : 50
 }, {
+  "id" : 205,
   "tourLocation" : "대구",
-  "nickname" : "nickname15",
-  "tourTitle" : "tourTitle15",
-  "minimumAge" : 27,
-  "maximumAge" : 45,
-  "postsAt" : "2021-01-29T00:35:11"
+  "nickname" : "nickname12",
+  "tourTitle" : "tourTitle12",
+  "numberOfScraps" : 0,
+  "weather" : 50
 }, {
+  "id" : 201,
+  "tourLocation" : "대구",
+  "nickname" : "nickname8",
+  "tourTitle" : "tourTitle8",
+  "numberOfScraps" : 0,
+  "weather" : 50
+}, {
+  "id" : 185,
+  "tourLocation" : "대구",
+  "nickname" : "nickname13",
+  "tourTitle" : "tourTitle13",
+  "numberOfScraps" : 0,
+  "weather" : 50
+}, {
+  "id" : 177,
+  "tourLocation" : "대구",
+  "nickname" : "nickname5",
+  "tourTitle" : "tourTitle5",
+  "numberOfScraps" : 0,
+  "weather" : 50
+}, {
+  "id" : 104,
   "tourLocation" : "대구",
   "nickname" : "nickname4",
   "tourTitle" : "tourTitle4",
-  "minimumAge" : 78,
-  "maximumAge" : 97,
-  "postsAt" : "2021-01-29T00:35:11"
-}, {
-  "tourLocation" : "대구",
-  "nickname" : "nickname0",
-  "tourTitle" : "tourTitle0",
-  "minimumAge" : 7,
-  "maximumAge" : 8,
-  "postsAt" : "2021-01-29T00:35:11"
-}, {
-  "tourLocation" : "대구",
-  "nickname" : "nickname3",
-  "tourTitle" : "tourTitle3",
-  "minimumAge" : 4,
-  "maximumAge" : 4,
-  "postsAt" : "2021-01-29T00:25:01"
-}, {
-  "tourLocation" : "대구",
-  "nickname" : "nickname1",
-  "tourTitle" : "tourTitle1",
-  "minimumAge" : 34,
-  "maximumAge" : 94,
-  "postsAt" : "2021-01-29T00:25:01"
+  "numberOfScraps" : 2,
+  "weather" : 50
 } ]</code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_4_동행_상세페이지">4. 동행 상세페이지</h3>
+<h3 id="_5_동행_상세페이지">5. 동행 상세페이지</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /tour-detail/550 HTTP/1.1
@@ -1116,7 +914,7 @@ Host: localhost:8080
 <pre class="highlight"><code class="language-bash" data-lang="bash">$ http --form POST 'http://localhost:8080/login' \
     'email=test@test.com' \
     'password=12345678ab!' \
-    '_csrf=bea49899-89a5-44ce-95b8-43c620d09834'</code></pre>
+    '_csrf=ab0fb9bd-2a83-417a-b7ad-cebc2486c177'</code></pre>
 </div>
 </div>
 <table class="tableblock frame-all grid-all spread">
@@ -1161,7 +959,7 @@ POST /oauth2/authorization/kakao - 카카오</code></pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-02-03 11:20:47 +09:00
+Last updated 2021-02-07 20:38:49 +09:00
 </div>
 </div>
 </body>
