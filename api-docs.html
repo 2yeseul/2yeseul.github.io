@@ -427,10 +427,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_동행">동행</a>
 <ul class="sectlevel2">
 <li><a href="#_1_동행_모집_업로드">1. 동행 모집 업로드</a></li>
-<li><a href="#_2_동행_전체_목록">2. 동행 전체 목록</a></li>
-<li><a href="#_3_동행_검색_목록_반환_팀명으로_검색_최신순">3. 동행 검색 목록 반환 - 팀명으로 검색 - 최신순</a></li>
-<li><a href="#_4_동행_검색_목록_반환_지역으로_검색_최신순">4. 동행 검색 목록 반환 - 지역으로 검색 - 최신순</a></li>
-<li><a href="#_5_동행_상세페이지">5. 동행 상세페이지</a></li>
+<li><a href="#_2_동행_검색_목록_반환_팀명으로_검색_최신순">2. 동행 검색 목록 반환 - 팀명으로 검색 - 최신순</a></li>
+<li><a href="#_3_동행_검색_목록_반환_지역으로_검색_최신순">3. 동행 검색 목록 반환 - 지역으로 검색 - 최신순</a></li>
+<li><a href="#_4_동행_상세페이지">4. 동행 상세페이지</a></li>
+<li><a href="#_5_찜">5. 찜</a></li>
 </ul>
 </li>
 <li><a href="#_프로필">프로필</a>
@@ -444,6 +444,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>base path = "/api"</code></pre>
+</div>
+</div>
+</div>
+</div>
 <div class="sect1">
 <h2 id="_동행">동행</h2>
 <div class="sectionbody">
@@ -451,52 +460,25 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_1_동행_모집_업로드">1. 동행 모집 업로드</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /tour-upload HTTP/1.1
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /tour-upload?_csrf=37fb2289-2354-4ff3-b5e2-7aab9afb6e81 HTTP/1.1
+Content-Type: application/json;charset=UTF-8
+Content-Length: 331
 Host: localhost:8080
-Content-Type: application/x-www-form-urlencoded
-
-nickname=nickname100&amp;tourLocation=%EC%9D%B8%EC%B2%9C&amp;tourTeam=SK&amp;tourStartDate=601&amp;tourEndDate=602&amp;tourTitle=tourTitle0&amp;tourContent=tourContent0&amp;requiredGender=2&amp;tourTheme=tourTheme0&amp;minimumAge=20&amp;maximumAge=30&amp;totalNumberOfMember=5&amp;nowNumberOfMember=2</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json
-Content-Length: 346
 
 {
-  "nickname" : "nickname100",
-  "tourLocation" : "인천",
-  "tourTeam" : "SK",
-  "tourStartDate" : 601,
-  "tourEndDate" : 602,
-  "tourTitle" : "tourTitle0",
-  "tourContent" : "tourContent0",
-  "requiredGender" : 2,
-  "tourTheme" : "tourTheme0",
+  "tourLocation" : "창원",
+  "tourTeam" : "NC",
+  "tourStartDate" : "0401",
+  "tourEndDate" : "0402",
+  "tourTitle" : "엔팍갈사람",
+  "tourContent" : "tourContent200",
+  "requiredGender" : 1,
+  "tourTheme" : "tourTheme200",
   "minimumAge" : 20,
   "maximumAge" : 30,
-  "totalNumberOfMember" : 5,
-  "nowNumberOfMember" : 2
+  "totalNumberOfMember" : 4,
+  "nowNumberOfMember" : 0
 }</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ http --form POST 'http://localhost:8080/tour-upload' \
-    'nickname=nickname100' \
-    'tourLocation=인천' \
-    'tourTeam=SK' \
-    'tourStartDate=601' \
-    'tourEndDate=602' \
-    'tourTitle=tourTitle0' \
-    'tourContent=tourContent0' \
-    'requiredGender=2' \
-    'tourTheme=tourTheme0' \
-    'minimumAge=20' \
-    'maximumAge=30' \
-    'totalNumberOfMember=5' \
-    'nowNumberOfMember=2'</code></pre>
 </div>
 </div>
 <table class="tableblock frame-all grid-all spread">
@@ -514,11 +496,6 @@ Content-Length: 346
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>nickname</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">닉네임</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>tourLocation</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">직관 지역</p></td>
@@ -530,12 +507,12 @@ Content-Length: 346
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>tourStartDate</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">동행 시작일</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>tourEndDate</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">동행 종료일</p></td>
 </tr>
 <tr>
@@ -582,7 +559,153 @@ Content-Length: 346
 </table>
 </div>
 <div class="sect2">
-<h3 id="_2_동행_전체_목록">2. 동행 전체 목록</h3>
+<h3 id="_2_동행_검색_목록_반환_팀명으로_검색_최신순">2. 동행 검색 목록 반환 - 팀명으로 검색 - 최신순</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ http GET 'http://localhost:8080/tour-search?keyword=NC'</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Content-Type: application/json
+Content-Length: 871
+
+[ {
+  "id" : 118,
+  "tourLocation" : "부산",
+  "nickname" : "nickname18",
+  "tourTitle" : "tourTitle17",
+  "tourStartDate" : "1010",
+  "tourEndDate" : "1012",
+  "weather" : 50,
+  "scrapCount" : 0,
+  "viewCount" : 0
+}, {
+  "id" : 117,
+  "tourLocation" : "부산",
+  "nickname" : "nickname17",
+  "tourTitle" : "tourTitle16",
+  "tourStartDate" : "1010",
+  "tourEndDate" : "1012",
+  "weather" : 50,
+  "scrapCount" : 0,
+  "viewCount" : 0
+}, {
+  "id" : 110,
+  "tourLocation" : "인천",
+  "nickname" : "nickname10",
+  "tourTitle" : "tourTitle9",
+  "tourStartDate" : "1010",
+  "tourEndDate" : "1012",
+  "weather" : 50,
+  "scrapCount" : 0,
+  "viewCount" : 1
+}, {
+  "id" : 104,
+  "tourLocation" : "인천",
+  "nickname" : "nickname4",
+  "tourTitle" : "tourTitle3",
+  "tourStartDate" : "1010",
+  "tourEndDate" : "1012",
+  "weather" : 50,
+  "scrapCount" : 0,
+  "viewCount" : 3
+} ]</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_3_동행_검색_목록_반환_지역으로_검색_최신순">3. 동행 검색 목록 반환 - 지역으로 검색 - 최신순</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ http GET 'http://localhost:8080/tour-search?keyword=%EB%8C%80%EA%B5%AC'</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Content-Type: application/json
+Content-Length: 652
+
+[ {
+  "id" : 115,
+  "tourLocation" : "대구",
+  "nickname" : "nickname15",
+  "tourTitle" : "tourTitle14",
+  "tourStartDate" : "1010",
+  "tourEndDate" : "1012",
+  "weather" : 50,
+  "scrapCount" : 1,
+  "viewCount" : 0
+}, {
+  "id" : 108,
+  "tourLocation" : "대구",
+  "nickname" : "nickname8",
+  "tourTitle" : "tourTitle7",
+  "tourStartDate" : "1010",
+  "tourEndDate" : "1012",
+  "weather" : 50,
+  "scrapCount" : 0,
+  "viewCount" : 0
+}, {
+  "id" : 106,
+  "tourLocation" : "대구",
+  "nickname" : "nickname6",
+  "tourTitle" : "tourTitle5",
+  "tourStartDate" : "1010",
+  "tourEndDate" : "1012",
+  "weather" : 50,
+  "scrapCount" : 0,
+  "viewCount" : 0
+} ]</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_4_동행_상세페이지">4. 동행 상세페이지</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /tour-detail/{id} HTTP/1.1
+Host: localhost:8080</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Content-Type: application/json
+Content-Length: 421
+
+{
+  "id" : 101,
+  "nickname" : "nickname1",
+  "tourLocation" : "서울",
+  "teamIndex" : 8,
+  "tourStartDate" : "1010",
+  "tourEndDate" : "1012",
+  "totalNumberOfMember" : 67,
+  "nowNumberOfMember" : 3,
+  "requiredGender" : 1,
+  "minimumAge" : 16,
+  "maximumAge" : 31,
+  "tourTitle" : "tourTitle0",
+  "tourTheme" : "tourTheme0",
+  "tourContent" : "tourContent0",
+  "weather" : 50,
+  "scrapCount" : 0,
+  "viewCount" : 15
+}</code></pre>
+</div>
+</div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 33%;">
@@ -598,230 +721,123 @@ Content-Length: 346
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[].id</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>id</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">tour id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tour id</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[].tourLocation</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">직관 지역</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[].nickname</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>nickname</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">닉네임</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[].tourTitle</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tourLocation</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">제목</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">직관 지역</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[].numberOfScraps</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>teamIndex</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">찜 수</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">사용자의 팀</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[].weather</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tourStartDate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">동행 시작일</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tourEndDate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">동행 종료일</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tourTitle</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">동행 모집 제목</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tourContent</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">동행 모집 글 내용</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>requiredGender</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">동행 조건 - 성별</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tourTheme</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">동행 조건 - 동행 테마</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>minimumAge</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">동행 조건 - 나이 - 최소</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>maximumAge</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">동행 조건 - 나이 - 최대</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>totalNumberOfMember</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">총 정원</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>nowNumberOfMember</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">확정 인원</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>weather</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">날씨</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>scrapCount</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">하트 수</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>viewCount</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">조회 수</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_3_동행_검색_목록_반환_팀명으로_검색_최신순">3. 동행 검색 목록 반환 - 팀명으로 검색 - 최신순</h3>
+<h3 id="_5_찜">5. 찜</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ http --form POST 'http://localhost:8080/tour-search' \
-    'keyword=KT'</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json
-Content-Length: 1484
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /scrap/102 HTTP/1.1
+Content-Type: application/json;charset=UTF-8
+Host: localhost:8080
 
-[ {
-  "id" : 209,
-  "tourLocation" : "대구",
-  "nickname" : "nickname16",
-  "tourTitle" : "tourTitle16",
-  "numberOfScraps" : 0,
-  "weather" : 50
-}, {
-  "id" : 203,
-  "tourLocation" : "서울",
-  "nickname" : "nickname10",
-  "tourTitle" : "tourTitle10",
-  "numberOfScraps" : 0,
-  "weather" : 50
-}, {
-  "id" : 191,
-  "tourLocation" : "대전",
-  "nickname" : "nickname19",
-  "tourTitle" : "tourTitle19",
-  "numberOfScraps" : 0,
-  "weather" : 50
-}, {
-  "id" : 177,
-  "tourLocation" : "대구",
-  "nickname" : "nickname5",
-  "tourTitle" : "tourTitle5",
-  "numberOfScraps" : 0,
-  "weather" : 50
-}, {
-  "id" : 176,
-  "tourLocation" : "대전",
-  "nickname" : "nickname4",
-  "tourTitle" : "tourTitle4",
-  "numberOfScraps" : 0,
-  "weather" : 50
-}, {
-  "id" : 174,
-  "tourLocation" : "광주",
-  "nickname" : "nickname2",
-  "tourTitle" : "tourTitle2",
-  "numberOfScraps" : 0,
-  "weather" : 50
-}, {
-  "id" : 117,
-  "tourLocation" : "대전",
-  "nickname" : "nickname17",
-  "tourTitle" : "tourTitle17",
-  "numberOfScraps" : 0,
-  "weather" : 50
-}, {
-  "id" : 115,
-  "tourLocation" : "대전",
-  "nickname" : "nickname15",
-  "tourTitle" : "tourTitle15",
-  "numberOfScraps" : 0,
-  "weather" : 50
-}, {
-  "id" : 111,
-  "tourLocation" : "광주",
-  "nickname" : "nickname11",
-  "tourTitle" : "tourTitle11",
-  "numberOfScraps" : 0,
-  "weather" : 50
-}, {
-  "id" : 106,
-  "tourLocation" : "서울",
-  "nickname" : "nickname6",
-  "tourTitle" : "tourTitle6",
-  "numberOfScraps" : 0,
-  "weather" : 50
-} ]</code></pre>
+_csrf=82a328af-df76-4121-a01e-76e13da63937</code></pre>
 </div>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_4_동행_검색_목록_반환_지역으로_검색_최신순">4. 동행 검색 목록 반환 - 지역으로 검색 - 최신순</h3>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ http --form POST 'http://localhost:8080/tour-search' \
-    'keyword=대구'</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json
-Content-Length: 1039
-
-[ {
-  "id" : 210,
-  "tourLocation" : "대구",
-  "nickname" : "nickname17",
-  "tourTitle" : "tourTitle17",
-  "numberOfScraps" : 0,
-  "weather" : 50
-}, {
-  "id" : 209,
-  "tourLocation" : "대구",
-  "nickname" : "nickname16",
-  "tourTitle" : "tourTitle16",
-  "numberOfScraps" : 0,
-  "weather" : 50
-}, {
-  "id" : 205,
-  "tourLocation" : "대구",
-  "nickname" : "nickname12",
-  "tourTitle" : "tourTitle12",
-  "numberOfScraps" : 0,
-  "weather" : 50
-}, {
-  "id" : 201,
-  "tourLocation" : "대구",
-  "nickname" : "nickname8",
-  "tourTitle" : "tourTitle8",
-  "numberOfScraps" : 0,
-  "weather" : 50
-}, {
-  "id" : 185,
-  "tourLocation" : "대구",
-  "nickname" : "nickname13",
-  "tourTitle" : "tourTitle13",
-  "numberOfScraps" : 0,
-  "weather" : 50
-}, {
-  "id" : 177,
-  "tourLocation" : "대구",
-  "nickname" : "nickname5",
-  "tourTitle" : "tourTitle5",
-  "numberOfScraps" : 0,
-  "weather" : 50
-}, {
-  "id" : 104,
-  "tourLocation" : "대구",
-  "nickname" : "nickname4",
-  "tourTitle" : "tourTitle4",
-  "numberOfScraps" : 2,
-  "weather" : 50
-} ]</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_5_동행_상세페이지">5. 동행 상세페이지</h3>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /tour-detail/550 HTTP/1.1
-Host: localhost:8080</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json
-Content-Length: 364
-
-{
-  "id" : 550,
-  "nickname" : "nickname14",
-  "tourLocation" : "서울",
-  "teamIndex" : 5,
-  "tourStartDate" : 1010,
-  "tourEndDate" : 1012,
-  "totalNumberOfMember" : 74,
-  "nowNumberOfMember" : 14,
-  "requiredGender" : 2,
-  "minimumAge" : 30,
-  "maximumAge" : 53,
-  "tourTitle" : "tourTitle14",
-  "tourTheme" : "tourTheme14",
-  "tourContent" : "tourContent14"
-}</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ http GET 'http://localhost:8080/tour-detail/550'</code></pre>
-</div>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 1. /scrap/{id}</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>id</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">동행 id</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -832,25 +848,18 @@ Content-Length: 364
 <h3 id="_1_회원가입">1.회원가입</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>- 아직 패스워드 복호화는 개발하지 않은 상태입니다. -&gt; 개발완료
-- 닉네임과 패스워드에 대한 제약사항은 백엔드 쪽에서 처리하긴 했지만 뷰 쪽에서도 서버로 넘어가기 전에 체크해주셨으면 좋겠습니다.
-- 이메일 인증 &amp; OAuth 개발 아직 안되었습니다.</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /sign-up HTTP/1.1
-Content-Type: application/json;charset=UTF-8
-Content-Length: 177
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /sign-up?_csrf=d3a15fb6-cf3d-4f1e-abf4-bcb0a360dcc7 HTTP/1.1
+Content-Type: application/json
+Content-Length: 176
 Host: localhost:8080
 
 {
-  "email" : "sdfl44@email.com",
-  "nickname" : "닉s넴13245",
+  "email" : "email100@email.com",
+  "nickname" : "nickname100",
   "name" : "이름",
-  "birth" : "2000-01-01",
+  "birth" : "20201010",
   "password" : "12345678ab!",
-  "teamIndex" : 1,
+  "teamIndex" : 2,
   "gender" : 1
 }</code></pre>
 </div>
@@ -897,12 +906,12 @@ Host: localhost:8080
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>gender</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">성별 - 1 : 남, 2 : 여, 3 : 선택안함</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">성별 - 1 : 남, 2 : 여</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>password</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">패스워드 - <strong> 복호화 예정 </strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">패스워드</p></td>
 </tr>
 </tbody>
 </table>
@@ -914,7 +923,7 @@ Host: localhost:8080
 <pre class="highlight"><code class="language-bash" data-lang="bash">$ http --form POST 'http://localhost:8080/login' \
     'email=test@test.com' \
     'password=12345678ab!' \
-    '_csrf=ab0fb9bd-2a83-417a-b7ad-cebc2486c177'</code></pre>
+    '_csrf=04e4dada-a5ff-4b1b-9f95-ee25ca39d050'</code></pre>
 </div>
 </div>
 <table class="tableblock frame-all grid-all spread">
@@ -959,7 +968,7 @@ POST /oauth2/authorization/kakao - 카카오</code></pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-02-07 20:38:49 +09:00
+Last updated 2021-02-11 23:20:36 +09:00
 </div>
 </div>
 </body>
