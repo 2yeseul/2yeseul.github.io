@@ -1021,6 +1021,20 @@ Host: localhost:8080
 </tr>
 </tbody>
 </table>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Content-Type: application/json
+Content-Length: 22
+
+{
+  "message" : "ok"
+}</code></pre>
+</div>
+</div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 33%;">
@@ -1069,6 +1083,21 @@ Host: localhost:8080
 </tr>
 </tbody>
 </table>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Content-Disposition: inline;filename=f.txt
+Content-Type: application/json
+Content-Length: 22
+
+{
+  "message" : "ok"
+}</code></pre>
+</div>
+</div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 33%;">
@@ -1086,7 +1115,7 @@ Host: localhost:8080
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>message</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ok - 중복 X / no - 중복 O</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ok - 중복 X / no - 중복 O / bad - 비속어 포함</p></td>
 </tr>
 </tbody>
 </table>
@@ -1226,7 +1255,7 @@ http://ec2-3-35-213-43.ap-northeast-2.compute.amazonaws.com:8080/api/oauth2/auth
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-02-14 23:44:04 +09:00
+Last updated 2021-02-15 17:05:36 +09:00
 </div>
 </div>
 </body>
