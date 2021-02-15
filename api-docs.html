@@ -1007,6 +1007,14 @@ Host: localhost:8080
 </div>
 <div class="listingblock">
 <div class="content">
+<pre class="highlight nowrap"><code>{
+  "nickname" : "스팟",
+  "email" : null
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Vary: Origin
 Vary: Access-Control-Request-Method
@@ -1045,35 +1053,27 @@ Content-Length: 22
 <h4 id="_1_2_이메일_중복">1-2. 이메일 중복</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ http POST 'http://localhost:8080/api/valid-email/spotzz@email.com'</code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ echo '{
+  "nickname" : null,
+  "email" : "spotzz@email.com"
+}' | http POST 'http://localhost:8080/api/valid-email' \
+    'Content-Type:application/json'</code></pre>
 </div>
 </div>
-<table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 2. /api/valid-email/{email}</caption>
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Parameter</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>email</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">이메일</p></td>
-</tr>
-</tbody>
-</table>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>{
+  "nickname" : null,
+  "email" : "spotzz@email.com"
+}</code></pre>
+</div>
+</div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Vary: Origin
 Vary: Access-Control-Request-Method
 Vary: Access-Control-Request-Headers
-Content-Disposition: inline;filename=f.txt
 Content-Type: application/json
 Content-Length: 22
 
@@ -1239,7 +1239,7 @@ http://ec2-3-35-213-43.ap-northeast-2.compute.amazonaws.com:8080/api/oauth2/auth
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-02-15 17:05:36 +09:00
+Last updated 2021-02-15 18:16:49 +09:00
 </div>
 </div>
 </body>
