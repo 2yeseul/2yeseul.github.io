@@ -998,29 +998,13 @@ Host: localhost:8080
 <h4 id="_1_1_닉네임_중복">1-1. 닉네임 중복</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ http POST 'http://localhost:8080/api/valid-nickname/%EC%8A%A4%ED%8C%9F' \
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ echo '{
+  "nickname" : "스팟",
+  "email" : null
+}' | http POST 'http://localhost:8080/api/valid-nickname' \
     'Content-Type:application/json'</code></pre>
 </div>
 </div>
-<table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 2. /api/valid-nickname/{nickname}</caption>
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Parameter</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>nickname</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">닉네임</p></td>
-</tr>
-</tbody>
-</table>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
@@ -1052,7 +1036,7 @@ Content-Length: 22
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>message</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ok - 중복 X / no - 중복 O</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ok - 중복 X / no - 중복 O / bad - 비속어</p></td>
 </tr>
 </tbody>
 </table>
@@ -1065,7 +1049,7 @@ Content-Length: 22
 </div>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 3. /api/valid-email/{email}</caption>
+<caption class="title">Table 2. /api/valid-email/{email}</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -1115,7 +1099,7 @@ Content-Length: 22
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>message</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ok - 중복 X / no - 중복 O / bad - 비속어 포함</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ok - 중복 X / no - 중복 O</p></td>
 </tr>
 </tbody>
 </table>
